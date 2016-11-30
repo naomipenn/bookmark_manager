@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
-gem "datamapper"
+gem "dm-migrations"
+
+gem "data_mapper"
 
 gem "dm-postgres-adapter"
