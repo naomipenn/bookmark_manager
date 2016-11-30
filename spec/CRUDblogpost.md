@@ -1,6 +1,6 @@
 CRUD and SQL
 
-CRUD is an acronym for Create, Read, Update and Delete. It describes the four basic function of persistent storage, as well as all major functions that are implemented in most relational database applications.
+CRUD is an acronym for Create, Read, Update and Delete. It describes the four basic functions of persistent storage, as well as all major functions that are implemented in most relational database applications.
 
 SQL stands for Structured Query Language. It communicates with a database. It is the standard language for relational database management systems.
 
