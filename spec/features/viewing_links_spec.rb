@@ -1,3 +1,5 @@
+require './app/app'
+
 feature "Viewing links" do
 
   scenario "see a list of links" do
