@@ -11,3 +11,7 @@ gem "sinatra"
 gem "rspec-sinatra"
 
 gem "capybara"
+
+group :test do
+gem "database_cleaner"
+end
