@@ -1,7 +1,7 @@
 feature "Viewing links" do
 
   scenario "see a list of links" do
-    Link.create(url 'http://www.huhbub.com', title: 'Huhbub')
+    Link.create(url: 'http://www.huhbub.com', title: 'Huhbub')
     visit '/links'
 
     expect(page.status_code).to eq 200
