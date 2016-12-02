@@ -14,3 +14,5 @@ Update => Update => UPDATE "students" SET NAME = "Sara Veal" WHERE ID = 1;
 This changes existing values in a database.
 Delete => Delete => DELETE FROm "students" WHERE ID = 1;
 This removes a row from the table.
+
+x
