@@ -4,7 +4,7 @@ feature 'Creating links' do
     visit '/links/new'
     fill_in 'url',   with: 'http://www.popcultureplaypen.com'
     fill_in 'title', with: 'Pop Culture Playpen'
-    click_button 'Create link'
+    click_button 'Create Link'
 
     # we expect to be redirected back to the links page
     expect(current_path).to eq '/links'
