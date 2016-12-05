@@ -1,13 +1,12 @@
-require './app/app'
-
 feature 'Creating links' do
 
   scenario 'I can create a new link' do
     visit '/links/new'
+    fill_in 'url',   with: 'http://www.popcultureplaypen.com'
     fill_in 'title', with: 'Pop Culture Playpen'
-    fill_in 'url', with: 'http://www.popcultureplaypen.com'
-    click_button 'Create Link'
+    click_button 'Create link'
 
+    # we expect to be redirected back to the links page
     expect(current_path).to eq '/links'
 
     within 'ul#links' do
