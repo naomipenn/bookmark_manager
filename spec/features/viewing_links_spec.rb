@@ -1,35 +1,34 @@
 require 'spec_helper'
 
 feature 'Viewing links' do
+  before(:each) do
+    Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy', tags: [Tag.first_or_create(name: 'education')])
+    Link.create(url: 'http://www.google.com', title: 'Google', tags: [Tag.first_or_create(name: 'search')])
+    Link.create(url: 'http://www.zombo.com', title: 'This is Zombocom', tags: [Tag.first_or_create(name: 'bubbles')])
+    Link.create(url: 'http://www.bubble-bobble.com', title: 'Bubble Bobble', tags: [Tag.first_or_create(name: 'bubbles')])
+  end
+
   scenario 'I can see existing links on the links page' do
-    Link.create(url: 'http://www.huhbub.com', title: 'Huhbub')
+    Link.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
 
     visit('/links')
 
     expect(page.status_code).to eq 200
 
     within 'ul#links' do
-      expect(page).to have_content('Huhbub')
+      expect(page).to have_content('Makers Academy')
     end
-  end
-
-  before(:each) do
-    Link.create(url: 'http://www.huhbub.com', title: 'Huhbub', tags: [Tag.first_or_create(name: 'campaigns')])
-    Link.create(url: 'http://www.popcultureplaypen.com', title: 'Pop Culture Playpen', tags: [Tag.first_or_create(name: 'pop culture')])
-    Link.create(url: 'http://www.theavclub.com', title: 'The AV Club', tags: [Tag.first_or_create(name: 'television')])
-    Link.create(url: 'http://the-toast.net', title: 'The Toast', tags: [Tag.first_or_create(name: 'television')])
   end
 
   scenario 'I can filter links by tag' do
-    visit '/tags/television'
+    visit '/tags/bubbles'
 
-  expect(page.status_code).to eq(200)
-  within 'ul#links' do
-    expect(page).not_to have_content('Huhbub')
-    expect(page).not_to have_content('Pop Culture Playpen')
-    expect(page).to have_content('The AV Club')
-    expect(page).to have_content ('The Toast')
+    expect(page.status_code).to eq(200)
+    within 'ul#links' do
+      expect(page).not_to have_content('Makers Academy')
+      expect(page).not_to have_content('Code.org')
+      expect(page).to have_content('This is Zombocom')
+      expect(page).to have_content('Bubble Bobble')
     end
   end
-
 end
